@@ -6,32 +6,24 @@ import {
   BookOpen,
   Bot,
   ChevronRight,
-  ChevronsUpDown,
   Command,
-  Folder,
-  Forward,
   Frame,
   GalleryVerticalEnd,
   Headset,
   Map,
-  MoreHorizontal,
   PieChart,
   Settings2,
   SquareTerminal,
   Terminal,
-  Trash2,
 } from "lucide-react";
 
-import { TeamSwitcher } from "@/components/team-switcher";
 import {
   Sidebar,
   SidebarContent,
-  SidebarFooter,
   SidebarGroup,
   SidebarGroupLabel,
   SidebarHeader,
   SidebarMenu,
-  SidebarMenuAction,
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarMenuSub,
@@ -45,13 +37,6 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "./ui/collapsible";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "./ui/dropdown-menu";
 
 // This is sample data.
 const data = {

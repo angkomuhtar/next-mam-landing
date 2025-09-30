@@ -5,7 +5,7 @@ import AM from "@/../public/assets/icon/AM";
 const Footer = () => {
   return (
     <footer className='bg-black'>
-      <div className='container mx-auto md:grid grid-cols-3 gap-8 py-10'>
+      <div className='px-4 sm:px-8 container mx-auto md:grid grid-cols-3 gap-8 py-10'>
         <div className='text-white'>
           <h3 className='text-lg font-bold'>MITRA ABADI MAHAKAM</h3>
           <p className='text-xs font-light'>
@@ -17,7 +17,7 @@ const Footer = () => {
             <li className=''>
               <h2 className='text-xs font-semibold uppercase'>OfFice</h2>
               <p className='text-[11px] font-light '>
-                A. W. Syaharanie No. 40, Samarinda, Kalimantan Timur
+                A. W. Syaharanie No. 818, Samarinda, Kalimantan Timur
               </p>
             </li>
             <li>
@@ -97,7 +97,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className='container mx-auto flex justify-between items-center text-white py-4'>
+      <div className='px-4 sm:px-8 container mx-auto flex justify-between items-center text-white py-4 px-4'>
         <p className='text-[11px]'>
           &copy; Mitra Abadi Mahakam, All rights Reserved
         </p>

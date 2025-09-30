@@ -1,9 +1,9 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Link } from "lucide-react";
 import React from "react";
 
 const HeaderImage = () => {
   return (
-    <section className='bg-[url(/assets/images/bg-truck.png)] h-screen bg-fixed bg-no-repeat bg-cover flex items-center bg-right'>
+    <section className='bg-[url(/assets/images/bg-truck.png)] h-screen bg-fixed bg-no-repeat bg-cover flex items-center bg-top-right'>
       <div className='container mx-auto'>
         <h2
           data-aos='fade-up'
@@ -22,14 +22,14 @@ const HeaderImage = () => {
           Creating <span className='text-red-700'>Value</span> and <br />
           Winning <span className='text-red-700'>Trust</span>
         </h2>
-        <button
+        <div
           data-aos='fade-right'
           data-aos-mirror='true'
           data-aos-duration='1000'
           data-aos-easing='ease-in-out'
-          className='bg-red-700 px-6 py-3 rounded-md text-sm font-medium flex items-center text-white uppercase cursor-pointer'>
+          className='bg-red-700 px-6 py-3 rounded-md text-sm font-medium flex items-center text-white uppercase cursor-pointer place-self-start'>
           discover More <ArrowRight className='w-6 ml-3' />
-        </button>
+        </div>
       </div>
     </section>
   );

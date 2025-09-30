@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Roboto, Roboto_Mono, DM_Sans } from "next/font/google";
+import { Roboto_Mono, DM_Sans } from "next/font/google";
 import "./globals.css";
 import SessionProvider from "@/components/providers";
 

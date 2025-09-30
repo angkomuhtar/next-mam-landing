@@ -14,6 +14,7 @@ import QuotesNext from "./QuotesNext";
 import QuotesPrev from "./QuotesPrev";
 import ServiceExpert from "./ServiceExpert";
 import Twitter from "./Twitter";
+import DumpTruck from "./DumpTruck";
 export {
   PaperPlan,
   AM,
@@ -31,4 +32,5 @@ export {
   Quotes,
   QuotesNext,
   QuotesPrev,
+  DumpTruck,
 };

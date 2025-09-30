@@ -31,7 +31,7 @@ const Header = ({ active }: { active: string }) => {
               <div className='flex justify-start space-x-2 items-center text-white'>
                 <MapPinHouse className='w-4' />
                 <h2 className='font-mono text-[11px] font-semibold'>
-                  Jl. A.W. Syahranie No. 40 Samarinda, East Kalimantan
+                  Jl. A.W. Syahranie No. 818 Samarinda, Kalimantan Timur
                 </h2>
               </div>
               <div className='flex justify-start space-x-2 text-white items-center'>
@@ -77,12 +77,25 @@ const Header = ({ active }: { active: string }) => {
                 className={`flex justify-end md:space-x-4 ${
                   offset > 47 ? "text-black" : "text-red-700"
                 }`}>
+                <Link href='/' className='cursor-pointer group'>
+                  <p
+                    className={`nav-link ${
+                      active == "about" && "text-red-700"
+                    }`}>
+                    Beranda
+                  </p>
+                  <div
+                    className={`h-0.5 bg-red-600 group-hover:w-3/5 w-0 transition-all duration-1000 ease-in-out ${
+                      active == "about" ? "w-3/5" : "w-0"
+                    } `}
+                  />
+                </Link>
                 <Link href='about' className='cursor-pointer group'>
                   <p
                     className={`nav-link ${
                       active == "about" && "text-red-700"
                     }`}>
-                    About Us
+                    Tentang Kami
                   </p>
                   <div
                     className={`nav-line ${
@@ -134,7 +147,7 @@ const Header = ({ active }: { active: string }) => {
                     className={`nav-link ${
                       active == "career" && "text-red-700"
                     }`}>
-                    Career
+                    Karir
                   </p>
                   <div
                     className={`nav-line ${
@@ -143,8 +156,8 @@ const Header = ({ active }: { active: string }) => {
                   />
                 </Link>
               </div>
-              <button className='uppercase bg-red-700 text-white font-semibold py-3 px-6 rounded-md text-xs hover:bg-white hover:text-red-700'>
-                Contact Us
+              <button className=' uppercase bg-red-700 text-white font-bold py-3 px-6 rounded-md text-xs hover:bg-white hover:text-red-700'>
+                Hubungi Kami
               </button>
             </div>
           </div>
