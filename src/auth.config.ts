@@ -26,6 +26,8 @@ export default {
           return null;
         }
 
+        console.log(user);
+
         return user;
       },
     }),

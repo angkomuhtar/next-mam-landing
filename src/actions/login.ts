@@ -22,6 +22,8 @@ export async function loginAction(data: z.infer<typeof LoginSchema>) {
       redirectTo: "/dashboard",
     });
   } catch (error) {
+    console.log("error : ", error);
+
     if (error instanceof AuthError) {
       switch (error.type) {
         case "CredentialsSignin":
