@@ -9,7 +9,8 @@ import {
   PhoneCall,
   Twitter,
 } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import path from "path";
 
 const Header = ({ active }: { active: string }) => {
   const [offset, setOffset] = useState(0);
@@ -22,6 +23,10 @@ const Header = ({ active }: { active: string }) => {
   }, []);
 
   const router = useRouter();
+  const pathname = usePathname();
+
+  console.log("getPathname", pathname);
+
   return (
     <header>
       <nav className='absolute top-0 left-0 right-0 z-10'>
@@ -55,13 +60,13 @@ const Header = ({ active }: { active: string }) => {
           </div>
         </div>
         <div
-          className={`${offset > 47 && "bg-gray-100"} ${
+          className={`${offset > 47 && "bg-gray-100 offset"} ${
             offset > 45 && "fixed left-0 right-0 top-0"
           } transition-colors duration-200`}>
           <div
             className={`container mx-auto ${
               offset > 45 ? "py-4" : "py-8"
-            } flex justify-between items-center transform duration-200`}>
+            } flex justify-between items-center`}>
             <div className='w-16'>
               <Link href='/'>
                 <Image
@@ -77,88 +82,47 @@ const Header = ({ active }: { active: string }) => {
                 className={`flex justify-end md:space-x-4 ${
                   offset > 47 ? "text-black" : "text-red-700"
                 }`}>
-                <Link href='/' className='cursor-pointer group'>
-                  <p
-                    className={`nav-link ${
-                      active == "about" && "text-red-700"
-                    }`}>
-                    Beranda
-                  </p>
-                  <div
-                    className={`h-0.5 bg-red-600 group-hover:w-3/5 w-0 transition-all duration-1000 ease-in-out ${
-                      active == "about" ? "w-3/5" : "w-0"
-                    } `}
-                  />
+                <Link
+                  href='/'
+                  className={`cursor-pointer group ${
+                    pathname == "/" && "active"
+                  }`}>
+                  <p className='nav-link'>Beranda</p>
+                  <div className='nav-link-line' />
                 </Link>
-                <Link href='about' className='cursor-pointer group'>
-                  <p
-                    className={`nav-link ${
-                      active == "about" && "text-red-700"
-                    }`}>
-                    Tentang Kami
-                  </p>
-                  <div
-                    className={`nav-line ${
-                      active == "about" ? "w-3/5" : "w-0"
-                    } `}
-                  />
+                <Link
+                  href='/about'
+                  className={`cursor-pointer group ${
+                    pathname.startsWith("/about") && "active"
+                  }`}>
+                  <p className='nav-link'>Tentang Kami</p>
+                  <div className='nav-link-line' />
                 </Link>
-                <Link href='service' className='cursor-pointer group'>
-                  <p
-                    className={`nav-link ${
-                      active == "service" && "text-red-700"
-                    }`}>
-                    Services
-                  </p>
-                  <div
-                    className={`nav-line ${
-                      active == "service" ? "w-3/5" : "w-0"
-                    } `}
-                  />
+                <Link
+                  href='project'
+                  className={`cursor-pointer group ${
+                    pathname.startsWith("/project") && "active"
+                  }`}>
+                  <p className='nav-link'>Proyek Kami</p>
+                  <div className='nav-link-line' />
                 </Link>
-                <Link href='teams' className='cursor-pointer group'>
-                  <p
-                    className={`nav-link ${
-                      active == "teams" && "text-red-700"
-                    }`}>
-                    Teams
-                  </p>
-                  <div
-                    className={`nav-line ${
-                      active == "teams" ? "w-3/5" : "w-0"
-                    } `}
-                  />
+                <Link
+                  href='/career'
+                  className={`cursor-pointer group ${
+                    pathname.startsWith("/career") && "active"
+                  }`}>
+                  <p className='nav-link'>Karir</p>
+                  <div className='nav-link-line' />
                 </Link>
-                <Link href='works' className='cursor-pointer group'>
-                  <p
-                    className={`nav-link ${
-                      active == "works" && "text-red-700"
-                    }`}>
-                    Works
-                  </p>
-                  <div
-                    className={`nav-line ${
-                      active == "works" ? "w-3/5" : "w-0"
-                    } `}
-                  />
-                </Link>
-                <Link href='career' className='cursor-pointer group'>
-                  <p
-                    className={`nav-link ${
-                      active == "career" && "text-red-700"
-                    }`}>
-                    Karir
-                  </p>
-                  <div
-                    className={`nav-line ${
-                      active == "career" ? "w-3/5" : "w-0"
-                    } `}
-                  />
+                <Link
+                  href='/contact-us'
+                  className={`cursor-pointer group ${
+                    pathname.startsWith("/contact-us") && "active"
+                  }`}>
+                  <p className='nav-link'>Kontak Kami</p>
+                  <div className='nav-link-line' />
                 </Link>
               </div>
-              <button className=' uppercase bg-red-700 text-white font-bold py-3 px-6 rounded-md text-xs hover:bg-white hover:text-red-700'>
-                Hubungi Kami
-              </button>
             </div>
           </div>
         </div>

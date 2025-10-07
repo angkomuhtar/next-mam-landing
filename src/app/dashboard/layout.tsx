@@ -1,5 +1,6 @@
 import { AppSidebar } from "@/components/app-sidebar";
 import AvatarMenu from "@/components/avatar-menu";
+import { ThemeToggle } from "@/components/tiptap-templates/simple/theme-toggle";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -41,6 +42,7 @@ const layout = ({ children }: { children: React.ReactNode }) => {
                 </BreadcrumbItem>
               </BreadcrumbList>
             </Breadcrumb>
+            <ThemeToggle />
             <AvatarMenu />
           </div>
         </header>

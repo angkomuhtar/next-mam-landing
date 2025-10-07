@@ -16,7 +16,6 @@ import { Selection } from "@tiptap/extensions";
 
 // --- UI Primitives ---
 import { Button } from "@/components/tiptap-ui-primitive/button";
-import { Spacer } from "@/components/tiptap-ui-primitive/spacer";
 import {
   Toolbar,
   ToolbarGroup,
@@ -64,9 +63,6 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { useWindowSize } from "@/hooks/use-window-size";
 import { useCursorVisibility } from "@/hooks/use-cursor-visibility";
 
-// --- Components ---
-import { ThemeToggle } from "@/components/tiptap-templates/simple/theme-toggle";
-
 // --- Lib ---
 import { handleImageUpload, MAX_FILE_SIZE } from "@/lib/tiptap-utils";
 
@@ -85,9 +81,7 @@ const MainToolbarContent = ({
   isMobile: boolean;
 }) => {
   return (
-    <>
-      <Spacer />
-
+    <div className='flex flex-wrap items-center justify-start lg:justify-center flex-1 space-y-2'>
       <ToolbarGroup>
         <UndoRedoButton action='undo' />
         <UndoRedoButton action='redo' />
@@ -143,14 +137,8 @@ const MainToolbarContent = ({
         <ImageUploadButton text='Add' />
       </ToolbarGroup>
 
-      <Spacer />
-
-      {/* {isMobile && <ToolbarSeparator />} */}
-
-      <ToolbarGroup>
-        <ThemeToggle />
-      </ToolbarGroup>
-    </>
+      {isMobile && <ToolbarSeparator />}
+    </div>
   );
 };
 
@@ -183,7 +171,11 @@ const MobileToolbarContent = ({
   </>
 );
 
-export function SimpleEditor() {
+export function SimpleEditor({
+  onChange,
+}: {
+  onChange: (html: string) => void;
+}) {
   const isMobile = useIsMobile();
   const { height } = useWindowSize();
   const [mobileView, setMobileView] = React.useState<
@@ -229,7 +221,9 @@ export function SimpleEditor() {
         onError: (error) => console.error("Upload failed:", error),
       }),
     ],
-    content,
+    onUpdate: ({ editor }) => {
+      onChange(editor.getHTML());
+    },
   });
 
   const rect = useCursorVisibility({
